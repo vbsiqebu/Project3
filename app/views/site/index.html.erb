@@ -1,0 +1,26 @@
+<section id="output"></section>
+
+<script>
+  $(function(){
+
+    $.ajax(
+      {
+        url: '/api/articles',
+        type: 'GET',
+        data: 'json',
+        success: function(data) {
+          console.log(data);
+          $.each(data, function(index, article) {
+
+            $('#output').append( $('<p></p>').html(article.title) );
+
+          });
+
+        },
+        error: function(x,y,z) {
+          console.log(x,y,z);
+        }
+      }
+    );
+  });
+</script>
