@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  latency: 1
+  bandwidth: 1
+  tested_at: 2013-11-19 12:13:51
+
+two:
+  latency: 1
+  bandwidth: 1
+  tested_at: 2013-11-19 12:13:51

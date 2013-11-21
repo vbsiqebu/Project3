@@ -1,26 +1,22 @@
-<section id="output"></section>
-
-<script>
-  $(function(){
-
-    $.ajax(
-      {
-        url: '/api/articles',
-        type: 'GET',
-        data: 'json',
-        success: function(data) {
-          console.log(data);
-          $.each(data, function(index, article) {
-
-            $('#output').append( $('<p></p>').html(article.title) );
-
-          });
-
-        },
-        error: function(x,y,z) {
-          console.log(x,y,z);
-        }
-      }
-    );
-  });
+<script id="articles-template" type="text/x-handlebars-template">
+  <ul class="article-links">
+    {{#each this}}
+      <li data-id="{{id}}">{{title}}</li>
+    {{/each}}
+  </ul>
 </script>
+
+<script id="article-template" type="text/x-handlebars-template">
+  <article>
+    <header>
+      <h1>{{title}}</h1>
+    </header>
+    <p>{{body}}</p>
+    <footer>
+      <p>{{niceDate created_at}}</p>
+      <p class="articles-path">All articles</p>
+    </footer>
+  </article>
+</script>
+
+<section id="output"></section>
